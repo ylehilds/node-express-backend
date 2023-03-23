@@ -2,10 +2,11 @@ const express = require('express')
 const app = express();
 import bodyParser from 'body-parser';
 import { getUserList, findUserById} from './users'
+const userList = getUserList() // dummy database layer
 
+// Configuring body parser middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
-const userList = getUserList() // dummy database layer
 
 // GET all users
 app.get('/users', (req, res) => {
